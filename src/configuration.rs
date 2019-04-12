@@ -16,7 +16,7 @@ lazy_static! {
     // in a static with name NAME. This wrapper type does not implement your trait,
     // (e.g. Debug) only the wrapped type does. Hence to print using the Debug
     // format, use `*CONFIGURATION`.
-    pub static ref CONFIGURATION: Configuration = Configuration::initialize();
+    pub static ref CONFIGURATION: Configuration = Configuration::new();
 }
 
 
@@ -50,7 +50,7 @@ impl Default for Configuration {
 }
 
 impl Configuration {
-    fn initialize() -> Self {
+    fn new() -> Self {
         // Get the default configuration, this is what will apply if nothing
         // else is specified.
         let mut config = Configuration::default();
@@ -103,7 +103,7 @@ impl Configuration {
     fn get_command_line_options() -> ArgMatches<'static> {
         let matches = App::new("My Super Program")
                             .version("1.0")
-                            .author("philip.daniels1971@gmail.com>")
+                            .author("philip.daniels19999999@gmail.com>")
                             .about("Does awesome things")
                             .arg(Arg::with_name("config")
                                 .short("c")
@@ -166,4 +166,3 @@ impl FileConfiguration {
         io::stdout().flush().unwrap();
     }
 }
-
